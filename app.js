@@ -29,19 +29,29 @@ if(localStorage.getItem('tareas') === null) {
 
 
 function eliminarTarea(elementoEliminar) {
-  let arreglo ='';
-      arreglo = JSON.parse(localStorage.getItem('tareas'));
-    for(let i = 0; i < arreglo.length; i++) {
-      
-      if(arreglo[i]== elementoEliminar) {
-        arreglo.splice(i,1);
-       // console.log(i);
-      
-      }
-    }
-    
-   localStorage.setItem('tareas', JSON.stringify(arreglo));
-    getTareas();
+  eliminar=confirm("¿Deseas eliminar este registro?");
+    if (eliminar)
+    //Redireccionamos si das a aceptar
+  
+          {
+
+  
+            let arreglo ='';
+            arreglo = JSON.parse(localStorage.getItem('tareas'));
+          for(let i = 0; i < arreglo.length; i++) {
+            
+            if(arreglo[i]== elementoEliminar) {
+              arreglo.splice(i,1);
+             // console.log(i);
+            
+            }
+          }
+          
+         localStorage.setItem('tareas', JSON.stringify(arreglo));
+          getTareas();
+          }
+  
+  
   }
   
   function getTareas() {
@@ -61,18 +71,11 @@ function eliminarTarea(elementoEliminar) {
         </div>
         
         
-        `;
- 
-         
+        `;         
 
     }
-
-     
-
-
-  }
-  
+  }  
   getTareas();
   
  
- 
+  
