@@ -1,24 +1,26 @@
- document.getElementById('Formulario_tareas').addEventListener('submit', salvarTarea);
 
+//obteniendo acceso al evento listerner al enviar la tarea mediante la funcion  salvarTarea
+document.getElementById('Formulario_tareas').addEventListener('submit', salvarTarea);
+//Funcion salvarTarea 
 function salvarTarea() {
     let tarea = document.getElementById('entradaTarea').value;
-    
-
-
-    
+    //se optiene la entrada de la tarea del texto a una variable local tarea 
+    //se almacena en un objeto la variable anterior con la tarea. 
     const objetoTarea = {
 
         tarea
 
 };
+
+//si no hay tareas en el local store
 if(localStorage.getItem('tareas') === null) {
-    let tareas = [];
-    tareas.push(tarea);
-    localStorage.setItem('tareas', JSON.stringify(tareas));
-  } else {
-    let tareas = JSON.parse(localStorage.getItem('tareas'));
-    tareas.push(tarea);
-    localStorage.setItem('tareas', JSON.stringify(tareas));
+    let tareas = [];//se inicializa el arreglo  tareas 
+    tareas.push(tarea);//se agrega el valor de la tarea actual 
+    localStorage.setItem('tareas', JSON.stringify(tareas));//se agrega a un json 
+  } else { // si ya exitiese alguna tarea 
+    let tareas = JSON.parse(localStorage.getItem('tareas'));//se agrega la tarea a un json 
+    tareas.push(tarea);//se agrega al store
+    localStorage.setItem('tareas', JSON.stringify(tareas)); //de json a texto para presenar 
   }
 
   getTareas();
@@ -54,17 +56,18 @@ function eliminarTarea(elementoEliminar) {
   
   }
   
-  function getTareas() {
+  function getTareas() {  ///opteniendo los items. 
     let tareas = JSON.parse(localStorage.getItem('tareas'));
     let tareasView = document.getElementById('descripcionTarea');
     tareasView.innerHTML = '';
-    for(let i = 0; i < tareas.length; i++) {
+    for(let i = 0; i < tareas.length; i++) {//recorriendo el arreglo 
       let listaTareas = tareas[i]
      
   
+
+    //mostrando y esperando el clic. 
       tareasView.innerHTML += `<div ">
       ${listaTareas}
-
       <button id='eliminar'  onclick=eliminarTarea('${listaTareas}')  class = 'delete-item' > Eliminar </button>
 
        
