@@ -31,7 +31,7 @@ if(localStorage.getItem('tareas') === null) {
 function eliminarTarea(elementoEliminar) {
   eliminar=confirm("¿Deseas eliminar este registro?");
     if (eliminar)
-    //Redireccionamos si das a aceptar
+     
   
           {
 
@@ -42,7 +42,7 @@ function eliminarTarea(elementoEliminar) {
             
             if(arreglo[i]== elementoEliminar) {
               arreglo.splice(i,1);
-             // console.log(i);
+   
             
             }
           }
