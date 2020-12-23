@@ -22,7 +22,7 @@ form input#todo-input{
     padding-left: 25px;
 }
 
-#add-item{
+button{
     height: 25px;
     width: 25%;
     background-color: red;
