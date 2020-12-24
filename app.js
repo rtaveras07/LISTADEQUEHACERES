@@ -1,5 +1,5 @@
  
-  document.getElementById('Formulario').addEventListener('submit', realizarCalculos);
+  document.getElementById('add-item').addEventListener('click', realizarCalculos);
 var diasFacturacion = 30;// los dias establecidos para la fkacturacion por la empresa 30 dias 
 var consumo = 0;
 var precioRango1 = 4.44;
@@ -10,9 +10,12 @@ var precioRango4 = 11.10;
 var cargofijo2 = 137.25
 var cargofijo1 = 37.95
  
+ 
+
+
 
 function realizarCalculos() {
- localStorage.clear();
+ //localStorage.clear();
   let kw = document.getElementById('entrada').value; //valor entrada 
   consumo = kw * diasFacturacion; //multiplicando para saber que consumo tendra mensual si el consumo diario es el introducido 
   //si no hay tareas en el local store
